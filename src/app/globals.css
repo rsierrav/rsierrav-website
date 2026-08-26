@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ==========================================================================
+   1. BASE STYLES & RESETS
+   ========================================================================== */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Prevents horizontal layout breaking on mobile devices */
+  overflow-x: hidden;
+
+  /* Highly optimized native system font stack (No external downloads required) */
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
+
+  /* Smooth font rendering on MacOS and iOS devices */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Global light mode default look */
+  background-color: rgb(248, 250, 252); /* slate-50 */
+  color: rgb(15, 23, 42); /* slate-900 */
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY HIERARCHY (Fixes Tailwind's flattened headers)
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: inherit;
+  letter-spacing: -0.025em; /* Sleek, modern tight tracking */
+}
+
+h1 {
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem; /* 16px */
+  line-height: 1.75; /* Highly readable text spacing */
+  margin-bottom: 1.25rem;
+  color: rgb(
+    71,
+    85,
+    105
+  ); /* slate-600 (slightly softer look for main paragraphs) */
+}
+
+/* ==========================================================================
+   3. AUTOMATIC DARK MODE SUPPORT
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: rgb(2, 6, 23); /* slate-950 */
+    color: rgb(248, 250, 252); /* slate-50 */
+  }
+
+  p {
+    color: rgb(148, 163, 184); /* slate-400 for softer dark mode text reading */
+  }
 }
