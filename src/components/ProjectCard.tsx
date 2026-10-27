@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router";
 import type { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -8,7 +8,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
-      href={`/projects/${project.slug}`}
+      to={`/projects/${project.slug}`}
       className="group block h-full overflow-hidden rounded-lg border border-slate-200 bg-white text-slate-700 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-slate-300 hover:bg-slate-50 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-800 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800 dark:focus-visible:outline-slate-100"
     >
       <div className="flex h-full flex-col p-5 sm:p-6">

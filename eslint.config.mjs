@@ -37,12 +37,6 @@ const eslintConfig = defineConfig([
       ],
     },
   },
-  {
-    files: ["src/app/projects/*/page.tsx"],
-    rules: {
-      "react-refresh/only-export-components": "off",
-    },
-  },
 ]);
 
 export default eslintConfig;
