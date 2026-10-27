@@ -1,39 +1,21 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import NotFound from "@/app/NotFound";
 import ProjectCaseStudy from "@/components/ProjectCaseStudy";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { getProjectBySlug } from "@/data/projects";
+import { useParams } from "react-router";
 
-interface ProjectPageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export function generateStaticParams() {
-  return projects.map(({ slug }) => ({ slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+export default function ProjectPage() {
+  const { slug } = useParams<{ slug: string }>();
+  const project = slug ? getProjectBySlug(slug) : undefined;
 
   if (!project) {
-    return { title: "Project Not Found" };
+    return <NotFound />;
   }
 
-  return {
-    title: `${project.title} | Rosa Sierra Villanueva`,
-    description: project.description,
-  };
-}
-
-export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
-
-  if (!project) {
-    notFound();
-  }
-
-  return <ProjectCaseStudy project={project} />;
+  return (
+    <>
+      <title>{`${project.title} | Rosa Sierra Villanueva`}</title>
+      <meta name="description" content={project.description} />
+      <ProjectCaseStudy project={project} />
+    </>
+  );
 }

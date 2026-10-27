@@ -13,7 +13,8 @@
     "@material-tailwind/react": "^2.1.10",
     "next": "^16.4.3",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-router": "^8.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

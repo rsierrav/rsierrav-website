@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 interface ProjectCaseStudyProps {
@@ -57,7 +56,7 @@ export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
           <h2 className="mt-10">Screenshots</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {project.images.map((image) => (
-              <Image
+              <img
                 key={image.src}
                 src={image.src}
                 alt={image.alt}
