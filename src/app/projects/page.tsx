@@ -1,24 +1,15 @@
-import { title } from "process";
-import ProjectCard from "../../components/ProjectCard";
-
-export function Tag({ label }: { label: string }) {
-  return (
-    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-      {label}
-    </span>
-  );
-}
+import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
-    <div>
-      <main>
-        <ProjectCard
-          title="Digital Bill of Lading"
-          description="A mobile-friendly digital signing workflow that allows drivers to locate, review, and electronically sign Bill of Lading documents."
-          technologies="React · TypeScript · C# · ASP.NET Core · Azure SQL"
-        />
-      </main>
-    </div>
+    <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
+      <h1 className="sr-only">Projects</h1>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
+        ))}
+      </div>
+    </main>
   );
 }

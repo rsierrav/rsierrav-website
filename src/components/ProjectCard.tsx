@@ -1,29 +1,27 @@
+import Link from "next/link";
+import type { Project } from "@/data/projects";
+
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  technologies: string;
+  project: Project;
 }
 
-export default function ProjectCard({
-  title,
-  description,
-  technologies,
-}: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    // Card Wrapper
-    <div className="mt-6 w-96 overflow-hidden rounded-xl bg-white text-gray-700 shadow-md border border-blue-gray-50">
-      {/* Body Area */}
-      <div className="p-6">
-        <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-          {title}
-        </h5>
-        <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-          {description}
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group block h-full overflow-hidden rounded-lg border border-slate-200 bg-white text-slate-700 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-slate-300 hover:bg-slate-50 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-800 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800 dark:focus-visible:outline-slate-100"
+    >
+      <div className="flex h-full flex-col p-5 sm:p-6">
+        <h2 className="mb-2 text-xl font-semibold leading-snug text-slate-900 transition-colors group-hover:text-slate-700 dark:text-slate-100 dark:group-hover:text-white">
+          {project.title}
+        </h2>
+        <p className="mb-0 text-base font-normal leading-7 text-slate-600 dark:text-slate-400">
+          {project.description}
         </p>
-        <p className="mt-4 block font-sans text-sm font-light leading-relaxed text-inherit antialiased">
-          <strong>Technologies:</strong> {technologies}
+        <p className="mb-0 mt-5 text-sm font-normal leading-6 text-slate-600 dark:text-slate-400">
+          <strong>Technologies:</strong> {project.technologies.join(" · ")}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }

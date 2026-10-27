@@ -1,16 +1,16 @@
 export default function Resume() {
   return (
-    <div>
+    <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
       <h1>Resume</h1>
       <h2>Rosa Sierra Villanueva</h2>
       <p>Indianapolis, IN</p>
       <p>Email · LinkedIn · GitHub</p>
       <p>[Download Resume]</p>
-      <h3>Education</h3>
+      <h3 className="mt-10">Education</h3>
       <p>Purdue University Indianapolis</p>
       <p>Bachelor of Science in Computer Science</p>
       <p>May 2026</p>
-      <h3>Technical Skills</h3>
+      <h3 className="mt-10">Technical Skills</h3>
       <p className="font-bold">Languages</p>
       <p>TypeScript · JavaScript · C# · SQL · Python · Java · HTML · CSS</p>
       <p className="font-bold">Frameworks & Libraries</p>
@@ -20,7 +20,7 @@ export default function Resume() {
       </p>
       <p className="font-bold">Tools & Practices</p>
       <p>Git · GitHub · Visual Studio · VS Code · REST APIs · Agile · Scrum</p>
-      <h3>Experience</h3>
+      <h3 className="mt-10">Experience</h3>
       <p>E-gineering Software Engineer Intern</p>
       <p>
         May 2026 – Present Developing a mobile-responsive e-signature workflow
@@ -46,6 +46,6 @@ export default function Resume() {
         documentation, and coordinated with medical providers, law enforcement,
         and other organizations.
       </p>
-    </div>
+    </main>
   );
 }
